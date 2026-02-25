@@ -7,6 +7,7 @@ import SubAgentsPanel from './components/SubAgentsPanel';
 import CalendarPanel from './components/CalendarPanel';
 import SystemMetricsPanel from './components/SystemMetricsPanel';
 import SwarmPanel from './components/SwarmPanel';
+import AgentSpawner from './components/AgentSpawner';
 import VoiceCommandBar from './components/VoiceCommandBar';
 import { 
   LayoutDashboard, 
@@ -18,7 +19,8 @@ import {
   Mic,
   Cpu,
   Zap,
-  Network
+  Network,
+  Plus
 } from 'lucide-react';
 
 // Dynamic import for 3D canvas (no SSR)
@@ -30,6 +32,7 @@ const tabs = [
   { id: 'jobs', label: 'JOBS', icon: Briefcase },
   { id: 'agents', label: 'AGENTS', icon: Users },
   { id: 'swarm', label: 'SWARM', icon: Network },
+  { id: 'spawn', label: 'SPAWN', icon: Plus },
   { id: 'calendar', label: 'CALENDAR', icon: Calendar },
   { id: 'metrics', label: 'METRICS', icon: Activity },
 ];
@@ -251,6 +254,7 @@ export default function App() {
               {activeTab === 'jobs' && <JobsPanel />}
               {activeTab === 'agents' && <SubAgentsPanel />}
               {activeTab === 'swarm' && <SwarmPanel />}
+              {activeTab === 'spawn' && <AgentSpawner />}
               {activeTab === 'calendar' && <CalendarPanel />}
               {activeTab === 'metrics' && <SystemMetricsPanel />}
             </motion.div>
