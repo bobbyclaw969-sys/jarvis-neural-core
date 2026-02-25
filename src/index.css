@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: #000000;
+  color: #00ffff;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* Scanline effect */
+.scanlines::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 255, 0.03) 2px,
+    rgba(0, 255, 255, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 1000;
+  animation: scanline 8s linear infinite;
+}
+
+/* Grid pattern */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Glassmorphism panel */
+.glass-panel {
+  background: rgba(0, 20, 40, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(0, 255, 255, 0.1);
+}
+
+/* Glow effects */
+.cyan-glow {
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
+}
+
+.magenta-glow {
+  text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+}
+
+/* Holographic flicker */
+@keyframes holographic-flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.8; }
+  94% { opacity: 1; }
+  97% { opacity: 0.9; }
+  98% { opacity: 1; }
+}
+
+.holographic-flicker {
+  animation: holographic-flicker 3s infinite;
+}
+
+/* Glitch effect on hover */
+.glitch-hover:hover {
+  animation: glitch 0.3s ease-in-out;
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+/* Circular gauge */
+.gauge-circle {
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s ease-in-out;
+}
+
+/* Progress bar */
+.progress-bar {
+  background: linear-gradient(90deg, #00ffff, #00ffaa);
+  box-shadow: 0 0 10px #00ffff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 20, 40, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00ffff;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00ffaa;
+}
+
+/* Calendar overrides */
+.fc {
+  --fc-border-color: rgba(0, 255, 255, 0.3);
+  --fc-button-bg-color: rgba(0, 255, 255, 0.2);
+  --fc-button-border-color: rgba(0, 255, 255, 0.5);
+  --fc-button-hover-bg-color: rgba(0, 255, 255, 0.3);
+  --fc-button-hover-border-color: #00ffff;
+  --fc-button-active-bg-color: #00ffff;
+  --fc-button-active-border-color: #00ffff;
+  --fc-today-bg-color: rgba(0, 255, 255, 0.1);
+  --fc-event-bg-color: rgba(0, 255, 255, 0.3);
+  --fc-event-border-color: #00ffff;
+  --fc-page-bg-color: transparent;
+  --fc-neutral-bg-color: rgba(0, 20, 40, 0.5);
+}
+
+.fc .fc-button {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.fc .fc-daygrid-day-number,
+.fc .fc-col-header-cell-cushion {
+  color: #00ffff;
+}
+
+.fc-theme-standard td,
+.fc-theme-standard th {
+  border-color: rgba(0, 255, 255, 0.2);
+}
